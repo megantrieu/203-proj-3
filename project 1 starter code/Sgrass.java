@@ -13,8 +13,7 @@ public class Sgrass extends FishAndGrass{
     public Sgrass(String id, Point position, int actionPeriod,
                                 List<PImage> images)
     {
-        super(id, position, images, 0, 0,
-                actionPeriod, 0);
+        super(id, position, images, actionPeriod);
     }
 
     protected void executeActivity(WorldModel world,ImageStore imageStore, EventScheduler scheduler)

@@ -387,5 +387,7 @@ public final class VirtualWorld
       }
    }
 
+   public Point getMouseClick(){return new Point(mouseX/TILE_WIDTH , mouseY/TILE_HEIGHT);}
+
 
 }

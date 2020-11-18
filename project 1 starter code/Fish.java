@@ -11,7 +11,7 @@ public class Fish extends FishAndGrass{
 
     public Fish(String id, Point position, int actionPeriod, List<PImage> images)
     {
-        super(id, position, images, 0, 0, actionPeriod, 0);
+        super(id, position, images, actionPeriod);
     }
 
     protected void executeActivity(WorldModel world,

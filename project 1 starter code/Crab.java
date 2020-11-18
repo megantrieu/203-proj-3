@@ -8,6 +8,7 @@ public class Crab extends AnimatedEntity{
     private static final String QUAKE_KEY = "quake";
     private PathingStrategy strategy = new AStarPathingStrategy();
 
+
     public Crab(String id, Point position, int actionPeriod, int animationPeriod, List<PImage> images)
     {
         super(id, position, images, 0, 0, actionPeriod, animationPeriod);
@@ -80,28 +81,6 @@ public class Crab extends AnimatedEntity{
 
     public Point nextPositionCrab(WorldModel world, Point destPos)
     {
-//        int horiz = Integer.signum(destPos.x - this.position.x);
-//        Point newPos = new Point(this.position.x + horiz,
-//                this.position.y);
-//
-//        Optional<Entity> occupant = world.getOccupant(newPos);
-//
-//        if (horiz == 0 ||
-//                (occupant.isPresent() && !(occupant.get() instanceof Fish)))
-//        {
-//            int vert = Integer.signum(destPos.y - this.position.y);
-//            newPos = new Point(this.position.x, this.position.y + vert);
-//            occupant = world.getOccupant(newPos);
-//
-//            if (vert == 0 ||
-//                    (occupant.isPresent() && !(occupant.get() instanceof Fish)))
-//            {
-//                newPos = this.position;
-//            }
-//        }
-//        return newPos;
-        //PathingStrategy strategy = new SingleStepPathingStrategy();
-
         List<Point> nextPoints = strategy.computePath(getPosition(), destPos, p -> (world.withinBounds(p) && !world.isOccupied(p)), Point::adjacent, PathingStrategy.CARDINAL_NEIGHBORS);
         if (nextPoints.size() == 0) {
             return getPosition();
