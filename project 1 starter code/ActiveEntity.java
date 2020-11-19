@@ -3,10 +3,8 @@ import processing.core.PImage;
 import java.util.List;
 
 public abstract class ActiveEntity extends Entity{
-    protected final int actionPeriod;
-    public ActiveEntity(String id, Point position, List<PImage> images, int actionPeriod) {
-        super(id, position, images);
-        this.actionPeriod = actionPeriod;
+    public ActiveEntity(String id, Point position, List<PImage> images, int resourceLimit, int resourceCount, int actionPeriod, int animationPeriod) {
+        super(id, position, images, resourceLimit, resourceCount, actionPeriod, animationPeriod);
     }
 
     public int getActionPeriod() {

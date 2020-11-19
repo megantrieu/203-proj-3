@@ -56,11 +56,11 @@ public final class VirtualWorld
    private final int OBSTACLE_COL = 2;
    private final int OBSTACLE_ROW = 3;
 
-   private final int FISH_NUM_PROPERTIES = 5;
-   private final int FISH_ID = 1;
-   private final int FISH_COL = 2;
-   private final int FISH_ROW = 3;
-   private final int FISH_ACTION_PERIOD = 4;
+   private final int Monkey_NUM_PROPERTIES = 5;
+   private final int Monkey_ID = 1;
+   private final int Monkey_COL = 2;
+   private final int Monkey_ROW = 3;
+   private final int Monkey_ACTION_PERIOD = 4;
 
    private final String ATLANTIS_KEY = "atlantis";
    private final int ATLANTIS_NUM_PROPERTIES = 4;
@@ -89,7 +89,7 @@ public final class VirtualWorld
    private final int OCTO_ACTION_PERIOD = 5;
    private final int OCTO_ANIMATION_PERIOD = 6;
    private final String OCTO_KEY = "octo";
-   private final String FISH_KEY = "fish";
+   private final String Monkey_KEY = "Monkey";
 
    private final int PROPERTY_KEY = 0;
 
@@ -254,8 +254,8 @@ public final class VirtualWorld
                return this.parseOcto(properties, world);
             case OBSTACLE_KEY:
                return this.parseObstacle(properties, world);
-            case FISH_KEY:
-               return this.parseFish(properties, world);
+            case Monkey_KEY:
+               return this.parseMonkey(properties, world);
             case ATLANTIS_KEY:
                return this.parseAtlantis(properties, world);
             case SGRASS_KEY:
@@ -282,19 +282,19 @@ public final class VirtualWorld
       return properties.length == SGRASS_NUM_PROPERTIES;
    }
 
-   private boolean parseFish(String [] properties, WorldModel world)
+   private boolean parseMonkey(String [] properties, WorldModel world)
    {
-      if (properties.length == FISH_NUM_PROPERTIES)
+      if (properties.length == Monkey_NUM_PROPERTIES)
       {
-         Point pt = new Point(Integer.parseInt(properties[FISH_COL]),
-                 Integer.parseInt(properties[FISH_ROW]));
-         ActiveEntity entity = new Fish(properties[FISH_ID],
-                 pt, Integer.parseInt(properties[FISH_ACTION_PERIOD]),
-                 imageStore.getImageList(FISH_KEY));
+         Point pt = new Point(Integer.parseInt(properties[Monkey_COL]),
+                 Integer.parseInt(properties[Monkey_ROW]));
+         ActiveEntity entity = new Monkey(properties[Monkey_ID],
+                 pt, Integer.parseInt(properties[Monkey_ACTION_PERIOD]),
+                 imageStore.getImageList(Monkey_KEY));
          world.tryAddEntity(entity);
       }
 
-      return properties.length == FISH_NUM_PROPERTIES;
+      return properties.length == Monkey_NUM_PROPERTIES;
    }
 
 
@@ -319,7 +319,7 @@ public final class VirtualWorld
       {
          Point pt = new Point(Integer.parseInt(properties[OCTO_COL]),
                  Integer.parseInt(properties[OCTO_ROW]));
-         ActiveEntity entity = new OctoNotFull(properties[OCTO_ID],
+         ActiveEntity entity = new LionNotFull(properties[OCTO_ID],
                  Integer.parseInt(properties[OCTO_LIMIT]),
                  pt,
                  Integer.parseInt(properties[OCTO_ACTION_PERIOD]),
@@ -386,8 +386,6 @@ public final class VirtualWorld
          lineNumber++;
       }
    }
-
-   public Point getMouseClick(){return new Point(mouseX/TILE_WIDTH , mouseY/TILE_HEIGHT);}
 
 
 }

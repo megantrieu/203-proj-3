@@ -4,15 +4,8 @@ import java.util.List;
 
 public abstract class AnimatedEntity extends ActiveEntity{
 
-    protected final int animationPeriod;
-    protected final int resourceLimit;
-    protected int resourceCount;
-
     public AnimatedEntity(String id, Point position, List<PImage> images, int resourceLimit, int resourceCount, int actionPeriod, int animationPeriod) {
-        super(id, position, images,actionPeriod);
-        this.animationPeriod = animationPeriod;
-        this.resourceLimit = resourceLimit;
-        this.resourceCount = resourceCount;
+        super(id, position, images, resourceLimit, resourceCount, actionPeriod, animationPeriod);
     }
 
     public abstract int getAnimationPeriod();
